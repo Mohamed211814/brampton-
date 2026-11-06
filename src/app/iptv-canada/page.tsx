@@ -157,7 +157,7 @@ export default function IptvCanadaPage() {
                 Explore our transparent CAD pricing plans starting from just $19 CAD per month.
               </p>
               <Link
-                href="/pricing"
+                href="/#pricing"
                 className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm text-white bg-red-600 hover:bg-red-700 shadow-md shadow-red-200 transition-colors"
               >
                 <span>View CAD Subscription Plans</span>

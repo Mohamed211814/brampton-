@@ -174,7 +174,7 @@ export default function IptvBramptonPage() {
           </p>
           <div className="pt-2">
             <Link
-              href="/pricing"
+              href="/#pricing"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white bg-red-600 hover:bg-red-700 shadow-md shadow-red-950/40 transition-colors"
             >
               <span>Explore Subscription Plans in CAD</span>
@@ -206,7 +206,7 @@ export default function IptvBramptonPage() {
           </p>
           <div className="pt-2 flex flex-wrap justify-center gap-4">
             <Link
-              href="/pricing"
+              href="/#pricing"
               className="px-6 py-3 rounded-xl font-bold text-sm text-white bg-red-600 hover:bg-red-700 shadow-md shadow-red-200"
             >
               View Pricing (CAD)

@@ -119,7 +119,7 @@ export default function RefundPolicyPage() {
             <span>Need Technical Support Instead?</span>
           </Link>
           <Link
-            href="/pricing"
+            href="/#pricing"
             className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-900"
           >
             <span>View Subscription Options</span>

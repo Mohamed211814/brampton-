@@ -75,12 +75,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-red-400 transition-colors">
+                <Link href="/#pricing" className="hover:text-red-400 transition-colors">
                   Subscription Plans (CAD)
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-red-400 transition-colors">
+                <Link href="/#faq" className="hover:text-red-400 transition-colors">
                   Frequently Asked Questions
                 </Link>
               </li>

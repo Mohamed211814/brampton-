@@ -141,7 +141,7 @@ export default function AboutPage() {
           </p>
           <div className="pt-2 flex flex-wrap justify-center gap-4">
             <Link
-              href="/pricing"
+              href="/#pricing"
               className="px-6 py-3 rounded-xl font-bold text-sm text-white bg-red-600 hover:bg-red-700 shadow-md shadow-red-200"
             >
               View CAD Pricing

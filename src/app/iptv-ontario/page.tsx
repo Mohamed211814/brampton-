@@ -190,7 +190,7 @@ export default function IptvOntarioPage() {
           </p>
           <div className="pt-2">
             <Link
-              href="/pricing"
+              href="/#pricing"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-bold text-sm text-white bg-red-600 hover:bg-red-700 shadow-md shadow-red-200 transition-colors"
             >
               <span>View Subscription Plans</span>

@@ -62,7 +62,7 @@ export function WhyChooseUs() {
             </p>
             <div className="pt-2">
               <Link
-                href="/pricing"
+                href="/#pricing"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-red-600 hover:bg-red-700 shadow-lg shadow-red-600/20 transition-colors text-sm"
               >
                 Compare CAD Subscription Plans

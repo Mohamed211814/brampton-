@@ -22,10 +22,28 @@ export function Navbar() {
 
   const navLinks = [
     { label: "IPTV Brampton", href: "/" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "FAQs", href: "/faq" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "FAQs", href: "/#faq" },
     { label: "Contact", href: "/contact" },
   ];
+
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("/#") && pathname === "/") {
+      e.preventDefault();
+      setMobileMenuOpen(false);
+      const id = href.replace("/#", "");
+      const elem = document.getElementById(id);
+      if (elem) {
+        elem.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      }
+    } else {
+      setMobileMenuOpen(false);
+    }
+  };
 
   return (
     <>
@@ -50,6 +68,7 @@ export function Navbar() {
             {/* Logo with Canadian Flag Icon */}
             <Link
               href="/"
+              onClick={(e) => handleLinkClick(e, "/")}
               className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded-lg p-1"
               aria-label="IPTV Brampton Home"
             >
@@ -82,7 +101,8 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                    className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
                       isActive
                         ? "text-red-600 bg-red-50 border border-red-200"
                         : "text-slate-700 hover:text-red-600 hover:bg-slate-50"
@@ -97,8 +117,9 @@ export function Navbar() {
             {/* CTA Button */}
             <div className="hidden sm:flex items-center gap-3">
               <Link
-                href="/pricing"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-red-600 hover:bg-red-700 shadow-md shadow-red-600/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                href="/#pricing"
+                onClick={(e) => handleLinkClick(e, "/#pricing")}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-red-600 hover:bg-red-700 shadow-md shadow-red-600/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
               >
                 <span>Get Started</span>
                 <ArrowRight className="w-4 h-4" />
@@ -108,7 +129,8 @@ export function Navbar() {
             {/* Mobile menu button */}
             <div className="flex items-center gap-2 md:hidden">
               <Link
-                href="/pricing"
+                href="/#pricing"
+                onClick={(e) => handleLinkClick(e, "/#pricing")}
                 className="px-3 py-1.5 rounded-lg text-xs font-bold bg-red-600 text-white sm:hidden"
               >
                 Plans
@@ -116,7 +138,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg text-slate-700 hover:text-slate-950 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
+                className="p-2 rounded-lg text-slate-700 hover:text-slate-950 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 cursor-pointer"
                 aria-expanded={mobileMenuOpen}
                 aria-label="Toggle mobile menu"
               >
@@ -136,8 +158,8 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`px-4 py-3 rounded-xl text-base font-semibold flex items-center justify-between ${
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                    className={`px-4 py-3 rounded-xl text-base font-semibold flex items-center justify-between cursor-pointer ${
                       isActive
                         ? "text-red-600 bg-red-50 border border-red-200"
                         : "text-slate-700 hover:text-red-600 hover:bg-slate-50"
@@ -150,9 +172,9 @@ export function Navbar() {
               })}
               <div className="pt-4 mt-2 border-t border-slate-100 flex flex-col gap-2.5">
                 <Link
-                  href="/pricing"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full text-center py-3 rounded-xl font-bold text-white bg-red-600 hover:bg-red-700 shadow-md shadow-red-600/30"
+                  href="/#pricing"
+                  onClick={(e) => handleLinkClick(e, "/#pricing")}
+                  className="w-full text-center py-3 rounded-xl font-bold text-white bg-red-600 hover:bg-red-700 shadow-md shadow-red-600/30 cursor-pointer"
                 >
                   Explore Subscription Plans
                 </Link>

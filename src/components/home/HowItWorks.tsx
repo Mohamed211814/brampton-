@@ -75,7 +75,7 @@ export function HowItWorks() {
 
         <div className="mt-12 text-center">
           <Link
-            href="/pricing"
+            href="/#pricing"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm text-white bg-red-600 hover:bg-red-700 shadow-xl shadow-red-200 transition-colors"
           >
             <span>Choose Your Plan Now</span>

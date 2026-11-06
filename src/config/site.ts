@@ -38,8 +38,8 @@ export const siteConfig = {
   },
   navItems: [
     { label: "IPTV Brampton", href: "/" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "FAQs", href: "/faq" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "FAQs", href: "/#faq" },
     { label: "Contact", href: "/contact" },
   ] as NavItem[],
   footerLegal: [

@@ -37,7 +37,7 @@ export default function NotFound() {
               <ArrowRight className="w-3.5 h-3.5 opacity-50" />
             </Link>
             <Link
-              href="/pricing"
+              href="/#pricing"
               className="flex items-center justify-between p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-slate-950 transition-colors"
             >
               <span className="flex items-center gap-2">
@@ -57,7 +57,7 @@ export default function NotFound() {
               <ArrowRight className="w-3.5 h-3.5 opacity-50" />
             </Link>
             <Link
-              href="/faq"
+              href="/#faq"
               className="flex items-center justify-between p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-slate-950 transition-colors"
             >
               <span className="flex items-center gap-2">

@@ -24,7 +24,7 @@ export function FinalCta() {
 
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            href="/pricing"
+            href="/#pricing"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-white bg-red-600 hover:bg-red-700 shadow-xl shadow-red-200 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
           >
             <span>View Subscription Plans</span>
