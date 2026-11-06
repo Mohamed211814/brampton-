@@ -1,0 +1,174 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Menu, X, ArrowRight, ShieldCheck } from "lucide-react";
+import { siteConfig } from "@/config/site";
+
+export function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 15);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { label: "IPTV Brampton", href: "/" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "FAQs", href: "/faq" },
+    { label: "Contact", href: "/contact" },
+  ];
+
+  return (
+    <>
+      {/* Top micro announcement bar */}
+      <div className="bg-neutral-950 border-b border-neutral-900 text-xs py-1.5 px-4 text-center text-neutral-300 flex items-center justify-center gap-2">
+        <span className="inline-block w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+        <span>Serving Brampton &amp; Peel Region | Ultra HD Canadian Streaming | Transparent CAD Pricing</span>
+        <span className="hidden md:inline-flex items-center gap-1 text-white ml-2 pl-2 border-l border-neutral-800 font-medium">
+          <ShieldCheck className="w-3.5 h-3.5 text-red-500" /> Instant Activation
+        </span>
+      </div>
+
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
+            : "bg-white/90 backdrop-blur-sm border-b border-slate-100"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-18 sm:h-20">
+            {/* Logo with Canadian Flag Icon */}
+            <Link
+              href="/"
+              className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded-lg p-1"
+              aria-label="IPTV Brampton Home"
+            >
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-md border border-slate-200 bg-white flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shrink-0">
+                <Image
+                  src="/brand-flag.png"
+                  alt="IPTV Brampton Canadian Flag Icon"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+                <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-red-600 border-2 border-white"></div>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-black tracking-tight text-slate-950 flex items-center gap-1">
+                  IPTV <span className="text-red-600">BRAMPTON</span>
+                </span>
+                <span className="text-[10px] tracking-widest uppercase font-bold text-slate-500">
+                  Canada HD Streaming
+                </span>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-1" aria-label="Main Navigation">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                      isActive
+                        ? "text-red-600 bg-red-50 border border-red-200"
+                        : "text-slate-700 hover:text-red-600 hover:bg-slate-50"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            {/* CTA Button */}
+            <div className="hidden sm:flex items-center gap-3">
+              <Link
+                href="/pricing"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-red-600 hover:bg-red-700 shadow-md shadow-red-600/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Get Started</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="flex items-center gap-2 md:hidden">
+              <Link
+                href="/pricing"
+                className="px-3 py-1.5 rounded-lg text-xs font-bold bg-red-600 text-white sm:hidden"
+              >
+                Plans
+              </Link>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 rounded-lg text-slate-700 hover:text-slate-950 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
+                aria-expanded={mobileMenuOpen}
+                aria-label="Toggle mobile menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile slide-down navigation drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-b border-slate-200 bg-white/98 backdrop-blur-xl px-4 pt-3 pb-6 animate-in slide-in-from-top-3 duration-200 shadow-xl">
+            <nav className="flex flex-col space-y-1.5" aria-label="Mobile Navigation">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`px-4 py-3 rounded-xl text-base font-semibold flex items-center justify-between ${
+                      isActive
+                        ? "text-red-600 bg-red-50 border border-red-200"
+                        : "text-slate-700 hover:text-red-600 hover:bg-slate-50"
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    <ArrowRight className="w-4 h-4 opacity-50" />
+                  </Link>
+                );
+              })}
+              <div className="pt-4 mt-2 border-t border-slate-100 flex flex-col gap-2.5">
+                <Link
+                  href="/pricing"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full text-center py-3 rounded-xl font-bold text-white bg-red-600 hover:bg-red-700 shadow-md shadow-red-600/30"
+                >
+                  Explore Subscription Plans
+                </Link>
+                <a
+                  href={siteConfig.contact.whatsAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full text-center py-2.5 rounded-xl font-bold text-slate-800 border border-slate-300 bg-slate-50 hover:bg-slate-100"
+                >
+                  WhatsApp Assistance
+                </a>
+              </div>
+            </nav>
+          </div>
+        )}
+      </header>
+    </>
+  );
+}

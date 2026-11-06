@@ -1,69 +1,170 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, ShieldCheck, HelpCircle } from "lucide-react";
+import { Hero } from "@/components/home/Hero";
+import { TrustBenefits } from "@/components/home/TrustBenefits";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
+import { ContentCategories } from "@/components/home/ContentCategories";
+import { CompatibleDevices } from "@/components/home/CompatibleDevices";
+import { PricingSection } from "@/components/home/PricingSection";
+import { BramptonLocalSection } from "@/components/home/BramptonLocalSection";
+import { HowItWorks } from "@/components/home/HowItWorks";
+import { FinalCta } from "@/components/home/FinalCta";
+import { FaqAccordion } from "@/components/common/FaqAccordion";
+import { JsonLd } from "@/components/common/JsonLd";
+import { siteConfig } from "@/config/site";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "IPTV Brampton | Premium IPTV Subscription in Brampton, Canada",
+  description:
+    "Looking for IPTV in Brampton, Canada? Explore our subscription plans, compatible devices, service features and customer support. Find the right plan for your needs.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "IPTV Brampton | Premium IPTV Subscription in Brampton, Canada",
+    description:
+      "Looking for IPTV in Brampton, Canada? Explore our subscription plans, compatible devices, service features and customer support. Find the right plan for your needs.",
+    url: siteConfig.url,
+  },
+};
+
+export default function HomePage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: siteConfig.homeFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <JsonLd data={faqSchema} />
+
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Trust and Benefits Feature Cards */}
+      <TrustBenefits />
+
+      {/* Why Choose Our IPTV Service */}
+      <WhyChooseUs />
+
+      {/* Content Categories Showcase */}
+      <ContentCategories />
+
+      {/* Compatible Devices */}
+      <CompatibleDevices />
+
+      {/* Subscription Plans (CAD) */}
+      <PricingSection />
+
+      {/* In-Depth Local & Technical SEO Article Section */}
+      <section className="py-20 bg-white border-t border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="space-y-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-red-700 bg-red-50 border border-red-200 px-3 py-1 rounded-full">
+              Brampton Streaming Guide
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+              IPTV Brampton Discover a Better Streaming Experience
+            </h2>
+            <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
+              If you live in <strong className="text-slate-950 font-semibold">Brampton, Ontario</strong>, you understand how television viewing has evolved. With major telecommunications bills continually rising, hundreds of households across the <strong className="text-slate-950 font-semibold">Greater Toronto Area (GTA)</strong> and <strong className="text-slate-950 font-semibold">Peel Region</strong> are searching for high definition streaming solutions that deliver superior channel selection, low latency live sports, and multi device convenience without long term contracts.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-slate-700 leading-relaxed">
+            <div className="space-y-4 p-6 rounded-2xl bg-slate-50/80 border border-slate-200 shadow-sm">
+              <h3 className="text-lg font-bold text-slate-950 flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-red-600 shrink-0" />
+                <span>Optimized for Brampton Broadband Networks</span>
+              </h3>
+              <p>
+                An IPTV service is only as good as the internet connection feeding it. Brampton features a modern network backbone anchored by Bell Fibe gigabit fiber, Rogers Ignite broadband, and independent providers such as TekSavvy, Start.ca, and Cogeco.
+              </p>
+              <p>
+                Our Content Delivery Network (CDN) peers directly with major Ontario internet exchange hubs in downtown Toronto. This strategic routing ensures that video packets avoid unnecessary international hops, delivering near-zero latency, rapid channel changing times, and buffer free live sports broadcasts during Saturday night hockey or international cricket matches.
+              </p>
+            </div>
+
+            <div className="space-y-4 p-6 rounded-2xl bg-slate-50/80 border border-slate-200 shadow-sm">
+              <h3 className="text-lg font-bold text-slate-950 flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-red-600 shrink-0" />
+                <span>Authentic Canadian Content &amp; Local Focus</span>
+              </h3>
+              <p>
+                Many offshore IPTV subscriptions fail to provide the Canadian channels local viewers need on a daily basis. With our service, Brampton households enjoy comprehensive access to regional Canadian news feeds (including CP24, CTV News Toronto, and Global News GTA), nationwide broadcasters (CBC and Citytv), and domestic sports networks (TSN and Sportsnet).
+              </p>
+              <p>
+                In addition, our playlists cater directly to Brampton&apos;s vibrant multicultural community, featuring high-quality South Asian (Punjabi, Hindi, Urdu, Tamil), European (Portuguese, Italian, Spanish), and Caribbean programming alongside premium Hollywood and international cinema.
+              </p>
+            </div>
+          </div>
+
+          <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 shadow-sm">
+            <h3 className="text-xl font-bold text-slate-950">
+              Understanding Device Compatibility for Peel Region Homes
+            </h3>
+            <p className="text-sm text-slate-700 leading-relaxed">
+              Whether your living room features a brand new 65-inch Samsung Neo QLED, an LG OLED running webOS, or an Amazon Fire TV Stick 4K plugged into a bedroom display, setting up your IPTV service is straightforward. We supply standard Xtream Codes API credentials and M3U playlist URLs compatible with top-rated applications such as <strong>TiviMate IPTV Player</strong>, <strong>IBO Player</strong>, <strong>IPTV Smarters Pro</strong>, and <strong>XCIPTV</strong>.
+            </p>
+            <div className="pt-2 flex flex-wrap gap-4 text-xs font-bold">
+              <Link href="/iptv-brampton" className="text-red-600 hover:text-red-700 flex items-center gap-1">
+                Explore Brampton Neighborhood Streaming <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link href="/iptv-ontario" className="text-slate-700 hover:text-slate-950 flex items-center gap-1">
+                Ontario Regional Coverage <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link href="/iptv-canada" className="text-slate-700 hover:text-slate-950 flex items-center gap-1">
+                Canada Nationwide Guide <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Why Brampton Customers Choose Us (Local Neighborhood Focus) */}
+      <BramptonLocalSection />
+
+      {/* How It Works (3 Steps) */}
+      <HowItWorks />
+
+      {/* Frequently Asked Questions Accordion */}
+      <section id="faq" className="py-20 bg-slate-50/70 relative border-t border-slate-200">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-red-700 bg-red-50 border border-red-200 px-3.5 py-1 rounded-full">
+              Got Questions?
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
+              Frequently Asked Questions About IPTV in Brampton
+            </h2>
+            <p className="text-slate-600 text-base">
+              Clear, transparent answers about IPTV subscriptions, device compatibility, setup instructions, and streaming in Canada.
+            </p>
+          </div>
+
+          <FaqAccordion items={siteConfig.homeFaqs} defaultOpenIndex={0} />
+
+          <div className="mt-12 text-center text-xs text-slate-600 flex items-center justify-center gap-2">
+            <HelpCircle className="w-4 h-4 text-red-600" />
+            <span>Have a technical question not answered here?</span>
+            <Link href="/contact" className="text-red-600 hover:underline font-bold">
+              Contact our Canadian team
+            </Link>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Final CTA Banner */}
+      <FinalCta />
+    </>
   );
 }
