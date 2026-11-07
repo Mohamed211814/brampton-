@@ -306,7 +306,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             Looking for a Reliable Canadian IPTV Subscription?
           </h3>
           <p className="text-sm text-slate-700 leading-relaxed">
-            Test our service with zero long term commitment. Flexible CAD plans starting at $19 CAD per month with instant device configuration.
+            Test our service with zero long term commitment. Flexible CAD plans starting at $12.99 CAD per month with instant device configuration.
           </p>
           <div className="pt-2 flex flex-wrap gap-4">
             <Link

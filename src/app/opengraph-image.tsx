@@ -99,7 +99,7 @@ export default async function Image() {
           }}
         >
           <span>https://iptvbrampton.ca</span>
-          <span style={{ color: "#ef4444", fontWeight: "bold" }}>Plans starting at $19 CAD / month</span>
+          <span style={{ color: "#ef4444", fontWeight: "bold" }}>Plans starting at $12.99 CAD / month</span>
         </div>
       </div>
     ),

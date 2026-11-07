@@ -126,7 +126,7 @@ Before committing your money, use this practical checklist to evaluate any Canad
 Many international IPTV sellers display prices in USD or Euros, exposing Canadian buyers to unfavorable foreign currency conversion fees and fluctuating monthly billing.
   Look for transparent **CAD pricing** with no hidden activation charges.
   Ensure payment methods are secure and do not require recurring auto-debit without your explicit consent.
-  Review our straightforward [Canadian subscription options](/pricing) starting at $19 CAD per month.
+  Review our straightforward [Canadian subscription options](/pricing) starting at $12.99 CAD per month.
 
 ---
 
@@ -483,7 +483,7 @@ Here is an objective breakdown of what each subscription model offers and who it
 
 ## 1. The 1-Month Plan: The Zero-Risk Evaluation Option
 
-A 1-month subscription available for **$19 CAD** is the ideal entry point for anyone testing IPTV for the first time or testing a new provider on their home broadband.
+A 1-month subscription available for **$12.99 CAD** is the ideal entry point for anyone testing IPTV for the first time or testing a new provider on their home broadband.
 
 ### Pros:
   **Zero Long Term Obligation:** If your schedule changes or you travel for the summer, you have no ongoing commitment.
@@ -498,7 +498,7 @@ A 1-month subscription available for **$19 CAD** is the ideal entry point for an
 
 ## 2. The 3-Month Plan: The Balanced Compromise
 
-At **$49 CAD** (equivalent to roughly $16.33 CAD per month), the 3-month quarterly subscription is one of the most practical options for regular viewers.
+At **$25.50 CAD** (equivalent to roughly $8.50 CAD per month), the 3-month quarterly subscription is one of the most practical options for regular viewers.
 
 ### Pros:
   **Noticeable Savings:** Lowers your effective monthly expense without requiring a full year's commitment upfront.
@@ -506,16 +506,29 @@ At **$49 CAD** (equivalent to roughly $16.33 CAD per month), the 3-month quarter
   **Predictable Billing:** Only requires attention four times per year.
 
 ### Cons:
-  Requires an initial payment of $49 CAD rather than $19 CAD.
+  Requires an initial payment of $25.50 CAD rather than $12.99 CAD.
 
 ---
 
-## 3. The 12-Month Plan: Maximum Convenience and Long Term Value
+## 3. The 6-Month Plan: Extended Seasonal Coverage
 
-For households that have already confirmed their hardware setup, enjoy their channel lineup, and want reliable television 365 days a year, the 12-month plan at **$129 CAD** offers the lowest cost per month (under $11 CAD per month).
+At **$50.99 CAD** (equivalent to roughly $8.50 CAD per month), the 6-month semi-annual subscription covers multi-season sports and extended entertainment.
 
 ### Pros:
-  **Lowest Cost per Month:** Cuts television expenses by upwards of 80% compared to traditional Canadian cable packages.
+  **Multi-Season Alignment:** Easily covers back-to-back hockey, basketball, and soccer seasons.
+  **Convenient Renewal:** Half-year coverage with zero automated contracts.
+
+### Cons:
+  Upfront payment for 6 months.
+
+---
+
+## 4. The 12-Month Plan: Maximum Convenience and Long Term Value
+
+For households that have already confirmed their hardware setup, enjoy their channel lineup, and want reliable television 365 days a year, the 12-month plan at **$79.99 CAD** offers the lowest cost per month (under $6.70 CAD per month).
+
+### Pros:
+  **Lowest Cost per Month:** Cuts television expenses by upwards of 85% compared to traditional Canadian cable packages.
   **Complete Peace of Mind:** Set it and forget it. No monthly renewal reminders or subscription interruptions in the middle of a big game.
   **Priority Onboarding:** Annual subscribers typically receive expedited VIP support for playlist updates and device reconfigurations.
 

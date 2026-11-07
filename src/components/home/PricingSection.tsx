@@ -35,13 +35,13 @@ export function PricingSection({
           </p>
         </div>
 
-        {/* 3 Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        {/* 4 Pricing Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {siteConfig.pricingPlans.map((plan) => {
             return (
               <div
                 key={plan.id}
-                className="relative rounded-2xl bg-white border border-slate-200 hover:border-red-600 transition-all duration-300 p-7 flex flex-col justify-between shadow-lg shadow-slate-200/50 hover:shadow-xl"
+                className="relative rounded-2xl bg-white border border-slate-200 hover:border-red-600 transition-all duration-300 p-6 flex flex-col justify-between shadow-lg shadow-slate-200/50 hover:shadow-xl"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -49,16 +49,16 @@ export function PricingSection({
                       {plan.duration}
                     </span>
                     <span className="text-xs font-semibold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
-                      {plan.connectionCount} Active Screen
+                      {plan.connectionCount} Screen
                     </span>
                   </div>
 
                   <div className="mb-4">
                     <div className="flex items-baseline gap-1.5">
-                      <span className="text-4xl sm:text-5xl font-black text-slate-950">
-                        ${plan.price}
+                      <span className="text-3xl sm:text-4xl font-black text-slate-950">
+                        ${typeof plan.price === "number" ? plan.price.toFixed(2) : plan.price}
                       </span>
-                      <span className="text-red-600 text-sm font-bold uppercase">
+                      <span className="text-red-600 text-xs sm:text-sm font-bold uppercase">
                         CAD
                       </span>
                     </div>

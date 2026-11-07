@@ -91,7 +91,7 @@ export default function RefundPolicyPage() {
             3. Recommended Evaluation Period
           </h2>
           <p>
-            If you are new to IPTV or want to verify compatibility with your specific home router and Smart TV in Brampton, we strongly recommend choosing our <strong>1-Month Access Plan ($19 CAD)</strong> first. This provides an inexpensive, zero obligation trial of our channel lineup and server stability before committing to longer terms.
+            If you are new to IPTV or want to verify compatibility with your specific home router and Smart TV in Brampton, we strongly recommend choosing our <strong>1-Month Access Plan ($12.99 CAD)</strong> first. This provides an inexpensive, zero obligation trial of our channel lineup and server stability before committing to longer terms.
           </p>
 
           <h2 className="text-xl sm:text-2xl font-bold text-slate-950 pt-4 border-t border-slate-200">

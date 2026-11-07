@@ -202,7 +202,7 @@ export default function IptvBramptonPage() {
             Ready to Stream in Brampton?
           </h3>
           <p className="text-sm text-slate-600 max-w-lg mx-auto">
-            Choose your preferred plan starting from $19 CAD per month with no setup fees or contracts.
+            Choose your preferred plan starting from $12.99 CAD per month with no setup fees or contracts.
           </p>
           <div className="pt-2 flex flex-wrap justify-center gap-4">
             <Link

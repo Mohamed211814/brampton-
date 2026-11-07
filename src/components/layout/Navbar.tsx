@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight, ShieldCheck } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export function Navbar() {
@@ -46,52 +46,37 @@ export function Navbar() {
   };
 
   return (
-    <>
-      {/* Top micro announcement bar */}
-      <div className="bg-neutral-950 border-b border-neutral-900 text-xs py-1.5 px-4 text-center text-neutral-300 flex items-center justify-center gap-2">
-        <span className="inline-block w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-        <span>Serving Brampton &amp; Peel Region | Ultra HD Canadian Streaming | Transparent CAD Pricing</span>
-        <span className="hidden md:inline-flex items-center gap-1 text-white ml-2 pl-2 border-l border-neutral-800 font-medium">
-          <ShieldCheck className="w-3.5 h-3.5 text-red-500" /> Instant Activation
-        </span>
-      </div>
-
-      <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
-            : "bg-white/90 backdrop-blur-sm border-b border-slate-100"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-18 sm:h-20">
-            {/* Logo with Canadian Flag Icon */}
-            <Link
-              href="/"
-              onClick={(e) => handleLinkClick(e, "/")}
-              className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded-lg p-1"
-              aria-label="IPTV Brampton Home"
-            >
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-md border border-slate-200 bg-white flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shrink-0">
-                <Image
-                  src="/brand-flag.png"
-                  alt="IPTV Brampton Canadian Flag Icon"
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-cover"
-                  priority
-                />
-                <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-red-600 border-2 border-white"></div>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-black tracking-tight text-slate-950 flex items-center gap-1">
-                  IPTV <span className="text-red-600">BRAMPTON</span>
-                </span>
-                <span className="text-[10px] tracking-widest uppercase font-bold text-slate-500">
-                  Canada HD Streaming
-                </span>
-              </div>
-            </Link>
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm"
+          : "bg-white/90 backdrop-blur-sm border-b border-slate-100"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-18 sm:h-20">
+          {/* Logo with Canadian Flag Icon */}
+          <Link
+            href="/"
+            onClick={(e) => handleLinkClick(e, "/")}
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 rounded-lg p-1"
+            aria-label="IPTV Brampton Home"
+          >
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-md border border-slate-200 bg-white flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shrink-0">
+              <Image
+                src="/brand-flag.png"
+                alt="IPTV Brampton Canadian Flag Icon"
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+                priority
+              />
+              <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-red-600 border-2 border-white"></div>
+            </div>
+            <span className="text-xl font-black tracking-tight text-slate-950 flex items-center gap-1">
+              IPTV <span className="text-red-600">BRAMPTON</span>
+            </span>
+          </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-1" aria-label="Main Navigation">
@@ -191,6 +176,5 @@ export function Navbar() {
           </div>
         )}
       </header>
-    </>
-  );
-}
+    );
+  }

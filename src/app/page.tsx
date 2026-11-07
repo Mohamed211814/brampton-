@@ -50,6 +50,12 @@ export default function HomePage() {
       {/* Hero Section */}
       <Hero />
 
+      {/* How It Works (3 Steps) */}
+      <HowItWorks />
+
+      {/* Subscription Plans (CAD) */}
+      <PricingSection />
+
       {/* Trust and Benefits Feature Cards */}
       <TrustBenefits />
 
@@ -61,9 +67,6 @@ export default function HomePage() {
 
       {/* Compatible Devices */}
       <CompatibleDevices />
-
-      {/* Subscription Plans (CAD) */}
-      <PricingSection />
 
       {/* In-Depth Local & Technical SEO Article Section */}
       <section className="py-20 bg-white border-t border-slate-200">
@@ -132,9 +135,6 @@ export default function HomePage() {
 
       {/* Why Brampton Customers Choose Us (Local Neighborhood Focus) */}
       <BramptonLocalSection />
-
-      {/* How It Works (3 Steps) */}
-      <HowItWorks />
 
       {/* Frequently Asked Questions Accordion */}
       <section id="faq" className="py-20 bg-slate-50/70 relative border-t border-slate-200">

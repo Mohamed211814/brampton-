@@ -154,7 +154,7 @@ export default function IptvCanadaPage() {
             <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 shadow-sm">
               <h3 className="text-lg font-bold text-slate-950">Ready to Compare Plans?</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Explore our transparent CAD pricing plans starting from just $19 CAD per month.
+                Explore our transparent CAD pricing plans starting from just $12.99 CAD per month.
               </p>
               <Link
                 href="/#pricing"

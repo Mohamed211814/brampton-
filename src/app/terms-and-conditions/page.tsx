@@ -44,7 +44,7 @@ export default function TermsPage() {
             1. Service Provision &amp; Subscription Terms
           </h2>
           <p>
-            {siteConfig.name} provides internet-delivered television media playlists and Xtream Codes access parameters for personal, domestic entertainment. Subscriptions are billed in Canadian Dollars (CAD) for the fixed duration purchased (1 Month, 3 Months, or 12 Months).
+            {siteConfig.name} provides internet-delivered television media playlists and Xtream Codes access parameters for personal, domestic entertainment. Subscriptions are billed in Canadian Dollars (CAD) for the fixed duration purchased (1 Month, 3 Months, 6 Months, or 12 Months).
           </p>
           <p>
             Unless explicitly requested, accounts do not renew automatically. You retain sole discretion over whether to renew upon expiration of your active period.

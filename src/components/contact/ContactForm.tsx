@@ -122,9 +122,10 @@ export function ContactForm() {
                 onChange={(e) => setFormData({ ...formData, plan: e.target.value })}
                 className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-slate-950 text-sm focus:outline-none focus:bg-white focus:border-red-600"
               >
-                <option value="1-month">1 Month Access ($19 CAD)</option>
-                <option value="3-months">3 Months Access ($49 CAD)</option>
-                <option value="12-months">12 Months Access ($129 CAD)</option>
+                <option value="1-month">1 Month Access ($12.99 CAD)</option>
+                <option value="3-months">3 Months Access ($25.50 CAD)</option>
+                <option value="6-months">6 Months Access ($50.99 CAD)</option>
+                <option value="12-months">12 Months Access ($79.99 CAD)</option>
                 <option value="trial-inquiry">General Question / Setup Advice</option>
               </select>
             </div>

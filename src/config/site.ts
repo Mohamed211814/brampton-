@@ -122,9 +122,9 @@ export const siteConfig = {
       id: "plan-1m",
       name: "1 Month Access",
       duration: "1 Month",
-      price: 19,
+      price: 12.99,
       period: "per month",
-      cadPriceFormatted: "$19 CAD",
+      cadPriceFormatted: "$12.99 CAD",
       description:
         "Flexible month to month access with no long term contract. Ideal for trying the service or short term entertainment needs.",
       connectionCount: 1,
@@ -143,9 +143,9 @@ export const siteConfig = {
       id: "plan-3m",
       name: "3 Months Access",
       duration: "3 Months",
-      price: 49,
+      price: 25.5,
       period: "per 3 months",
-      cadPriceFormatted: "$49 CAD",
+      cadPriceFormatted: "$25.50 CAD",
       description:
         "A balanced quarterly subscription offering extended uninterrupted viewing without an annual commitment.",
       connectionCount: 1,
@@ -161,14 +161,35 @@ export const siteConfig = {
       ],
     },
     {
+      id: "plan-6m",
+      name: "6 Months Access",
+      duration: "6 Months",
+      price: 50.99,
+      period: "per 6 months",
+      cadPriceFormatted: "$50.99 CAD",
+      description:
+        "Extended half-year subscription delivering reliable seasonal sports, movies, and family television with zero contracts.",
+      connectionCount: 1,
+      features: [
+        "Full Live TV Channel Lineup for 180 Days",
+        "Canadian, US & International Channels",
+        "Live Sports Coverage & Premium Events",
+        "HD & 4K Ultra HD Streams (where available)",
+        "Complete On Demand Movies & Series Library",
+        "Universal Hardware & Multi-App Support",
+        "Full Electronic Program Guide (EPG)",
+        "Priority Customer & Technical Assistance",
+      ],
+    },
+    {
       id: "plan-12m",
       name: "12 Months Access",
       duration: "12 Months",
-      price: 129,
+      price: 79.99,
       period: "per year",
-      cadPriceFormatted: "$129 CAD",
+      cadPriceFormatted: "$79.99 CAD",
       description:
-        "Annual streaming subscription for households seeking year-round entertainment, live sports, and news at a predictable rate.",
+        "Full annual streaming subscription for households seeking year-round entertainment, live sports, and news at our best rate.",
       connectionCount: 1,
       features: [
         "Full Live TV Channel Lineup for 365 Days",
@@ -235,7 +256,7 @@ export const siteConfig = {
     {
       question: "How much does an IPTV subscription cost in Brampton?",
       answer:
-        "Our IPTV subscription plans for Brampton and Canadian customers are billed in Canadian Dollars (CAD). We offer flexible options starting from $19 CAD for 1 Month, $49 CAD for 3 Months, and $129 CAD for 12 Months. There are no contracts, no hidden installation fees, and no equipment rental charges.",
+        "Our IPTV subscription plans for Brampton and Canadian customers are billed in Canadian Dollars (CAD). We offer flexible options starting from $12.99 CAD for 1 Month, $25.50 CAD for 3 Months, $50.99 CAD for 6 Months, and $79.99 CAD for 12 Months. There are no contracts, no hidden installation fees, and no equipment rental charges.",
     },
     {
       question: "Which devices support IPTV?",

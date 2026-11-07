@@ -48,7 +48,7 @@ export function TrustBenefits() {
   ];
 
   return (
-    <section id="benefits" className="py-20 bg-slate-50/70 relative border-t border-b border-slate-200">
+    <section id="benefits" className="py-20 bg-white relative border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-red-700 bg-red-50 border border-red-200 px-3 py-1 rounded-full">
