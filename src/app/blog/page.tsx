@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default function BlogListingPage() {
-  const blogSchema = {
+  const blogSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": `${siteConfig.url}/blog#collectionpage`,
@@ -33,7 +33,10 @@ export default function BlogListingPage() {
     isPartOf: {
       "@id": `${siteConfig.url}/#website`,
     },
-    hasPart: blogPosts.map((post) => ({
+  };
+
+  if (blogPosts.length > 0) {
+    blogSchema.hasPart = blogPosts.map((post) => ({
       "@type": "BlogPosting",
       headline: post.title,
       description: post.description,
@@ -43,8 +46,8 @@ export default function BlogListingPage() {
         "@type": "Person",
         name: post.author.name,
       },
-    })),
-  };
+    }));
+  }
 
   return (
     <div className="py-8 sm:py-12 bg-white">

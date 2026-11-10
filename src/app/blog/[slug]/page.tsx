@@ -12,6 +12,9 @@ interface BlogPostPageProps {
 }
 
 export function generateStaticParams() {
+  if (blogPosts.length === 0) {
+    return [{ slug: "_empty" }];
+  }
   return blogPosts.map((post) => ({
     slug: post.slug,
   }));

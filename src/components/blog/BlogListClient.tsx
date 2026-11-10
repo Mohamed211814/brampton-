@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Search, X } from "lucide-react";
+import Link from "next/link";
+import { Search, X, BookOpen } from "lucide-react";
 import { BlogPost } from "@/types";
 import { BlogCard } from "./BlogCard";
 
@@ -32,6 +33,36 @@ export function BlogListClient({ initialPosts }: BlogListClientProps) {
       return matchesSearch && matchesCat;
     });
   }, [initialPosts, searchQuery, selectedCategory]);
+
+  if (initialPosts.length === 0) {
+    return (
+      <div className="text-center py-20 px-6 bg-slate-50 border border-slate-200 rounded-3xl space-y-6 max-w-2xl mx-auto shadow-sm">
+        <div className="w-16 h-16 mx-auto rounded-2xl bg-red-50 border border-red-200 flex items-center justify-center text-red-600">
+          <BookOpen className="w-8 h-8" />
+        </div>
+        <div className="space-y-2">
+          <h2 className="text-2xl font-bold text-slate-950">Guides &amp; Articles Coming Soon</h2>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Our technical team is currently preparing comprehensive setup tutorials, device optimization walkthroughs, and local Brampton streaming guides. Please check back soon!
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <Link
+            href="/#pricing"
+            className="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-sm shadow-md shadow-red-600/20 transition-colors"
+          >
+            Explore Subscription Plans
+          </Link>
+          <Link
+            href="/contact"
+            className="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-800 font-bold text-sm transition-colors"
+          >
+            Contact Support
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-10">
