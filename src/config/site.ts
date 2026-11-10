@@ -20,6 +20,7 @@ export const siteConfig = {
     "Best IPTV Canada",
     "IPTV Ontario",
     "Brampton IPTV service",
+    "IPTV Bramptom",
   ],
   contact: {
     email: "iptvusapro@gmail.com",

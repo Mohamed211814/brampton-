@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
@@ -18,6 +18,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -36,6 +46,7 @@ export const metadata: Metadata = {
     "Best IPTV Canada",
     "IPTV Ontario",
     "Brampton IPTV service",
+    "IPTV Bramptom",
   ],
   authors: [{ name: "IPTV Brampton Team" }],
   creator: "IPTV Brampton",
@@ -102,6 +113,15 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "IPTV Brampton",
+  },
+  other: {
+    "msapplication-TileColor": "#ffffff",
+    "msapplication-TileImage": "/android-chrome-192x192.png",
+  },
 };
 
 export default function RootLayout({
@@ -116,7 +136,12 @@ export default function RootLayout({
         "@type": "Organization",
         "@id": `${siteConfig.url}/#organization`,
         name: siteConfig.name,
-        alternateName: ["IPTV Brampton Canada", "IPTV Service Brampton", "IPTV Subscription Brampton"],
+        alternateName: [
+          "IPTV Brampton Canada",
+          "IPTV Service Brampton",
+          "IPTV Subscription Brampton",
+          "IPTV Bramptom",
+        ],
         url: siteConfig.url,
         logo: `${siteConfig.url}/brand-flag.png`,
         image: `${siteConfig.url}/hero-bg.jpg`,
