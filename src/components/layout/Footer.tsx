@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Clock, MapPin, ShieldAlert, CheckCircle2 } from "lucide-react";
+import { Mail, Clock, MapPin, ShieldAlert, CheckCircle2, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export function Footer() {
@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <footer className="bg-black border-t border-neutral-900 text-neutral-400 text-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-neutral-900">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-neutral-900">
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-3">
@@ -92,45 +92,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Local Brampton Coverage */}
-          <div className="space-y-4">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-              Brampton Areas
-            </h3>
-            <ul className="space-y-2.5 text-xs text-neutral-400">
-              <li>
-                <Link href="/iptv-brampton" className="hover:text-white transition-colors">
-                  Downtown Brampton (L6W)
-                </Link>
-              </li>
-              <li>
-                <Link href="/iptv-brampton" className="hover:text-white transition-colors">
-                  Bramalea &amp; City Centre (L6T)
-                </Link>
-              </li>
-              <li>
-                <Link href="/iptv-brampton" className="hover:text-white transition-colors">
-                  Mount Pleasant &amp; Northwest (L6X)
-                </Link>
-              </li>
-              <li>
-                <Link href="/iptv-brampton" className="hover:text-white transition-colors">
-                  Springdale &amp; Castlemore (L6R)
-                </Link>
-              </li>
-              <li>
-                <Link href="/iptv-brampton" className="hover:text-white transition-colors">
-                  Heart Lake &amp; North Brampton (L6Z)
-                </Link>
-              </li>
-              <li>
-                <Link href="/iptv-brampton" className="hover:text-white transition-colors">
-                  Fletcher&apos;s Meadow (L6X)
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* Contact & Hours */}
           <div className="space-y-4">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider">
@@ -144,6 +105,17 @@ export function Footer() {
                   <br />
                   <span className="text-neutral-500">Peel Region, Greater Toronto Area</span>
                 </span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <MessageCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                <a
+                  href={siteConfig.contact.whatsAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-red-400 transition-colors"
+                >
+                  Contact on WhatsApp
+                </a>
               </div>
               <div className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />

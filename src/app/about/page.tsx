@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Tv, ShieldCheck, Heart, Server, Users } from "lucide-react";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
+import { JsonLd } from "@/components/common/JsonLd";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -20,8 +21,26 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${siteConfig.url}/about#aboutpage`,
+    url: `${siteConfig.url}/about`,
+    name: "About Us | IPTV Brampton & Canadian Streaming Solutions",
+    description:
+      "Learn about IPTV Brampton, our technological philosophy, local Canadian edge routing, and our commitment to transparent streaming television for Peel Region households.",
+    inLanguage: "en-CA",
+    isPartOf: {
+      "@id": `${siteConfig.url}/#website`,
+    },
+    mainEntity: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+  };
+
   return (
     <div className="py-8 sm:py-12 bg-white">
+      <JsonLd data={aboutSchema} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
         <Breadcrumbs items={[{ label: "About Us", href: "/about" }]} />
 

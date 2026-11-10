@@ -116,28 +116,91 @@ export default function RootLayout({
         "@type": "Organization",
         "@id": `${siteConfig.url}/#organization`,
         name: siteConfig.name,
+        alternateName: ["IPTV Brampton Canada", "IPTV Service Brampton", "IPTV Subscription Brampton"],
         url: siteConfig.url,
-        logo: `${siteConfig.url}/logo.svg`,
+        logo: `${siteConfig.url}/brand-flag.png`,
+        image: `${siteConfig.url}/hero-bg.jpg`,
+        email: siteConfig.contact.email,
+        telephone: siteConfig.contact.phone,
         contactPoint: [
           {
             "@type": "ContactPoint",
+            telephone: siteConfig.contact.phone,
             email: siteConfig.contact.email,
             contactType: "customer service",
             areaServed: "CA",
             availableLanguage: ["en"],
           },
         ],
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Brampton",
+          addressRegion: "ON",
+          addressCountry: "CA",
+        },
       },
       {
         "@type": "WebSite",
         "@id": `${siteConfig.url}/#website`,
         url: siteConfig.url,
-        name: siteConfig.name,
+        name: "IPTV Brampton",
+        alternateName: "IPTV Brampton - Premium Canadian IPTV Subscription",
         description: siteConfig.description,
         publisher: {
           "@id": `${siteConfig.url}/#organization`,
         },
         inLanguage: "en-CA",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: `${siteConfig.url}/blog?q={search_term_string}`,
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "Service",
+        "@id": `${siteConfig.url}/#service`,
+        name: "IPTV Brampton Subscription Service",
+        serviceType: "Internet Protocol Television (IPTV)",
+        description:
+          "High definition IPTV subscription services for viewers in Brampton, Ontario and across Canada with flexible CAD pricing and no long term contracts.",
+        provider: {
+          "@id": `${siteConfig.url}/#organization`,
+        },
+        areaServed: [
+          {
+            "@type": "City",
+            name: "Brampton",
+            containedInPlace: {
+              "@type": "AdministrativeArea",
+              name: "Ontario",
+            },
+          },
+          {
+            "@type": "AdministrativeArea",
+            name: "Ontario",
+          },
+          {
+            "@type": "Country",
+            name: "Canada",
+          },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "IPTV Brampton Subscription Plans",
+          itemListElement: siteConfig.pricingPlans.map((plan) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: `${plan.name} - IPTV Brampton`,
+              description: plan.description,
+            },
+            price: plan.price,
+            priceCurrency: "CAD",
+            priceValidUntil: "2027-12-31",
+            availability: "https://schema.org/InStock",
+            url: `${siteConfig.url}/#pricing`,
+          })),
+        },
       },
     ],
   };

@@ -30,22 +30,116 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const faqSchema = {
+  const homeSchema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: siteConfig.homeFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${siteConfig.url}/#webpage`,
+        url: siteConfig.url,
+        name: "IPTV Brampton | Premium IPTV Subscription in Brampton, Canada",
+        description:
+          "Looking for IPTV in Brampton, Canada? Explore our subscription plans, compatible devices, service features and customer support. Find the right plan for your needs.",
+        inLanguage: "en-CA",
+        isPartOf: {
+          "@id": `${siteConfig.url}/#website`,
+        },
+        about: {
+          "@id": `${siteConfig.url}/#service`,
+        },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${siteConfig.url}/hero-bg.jpg`,
+        },
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "IPTV Brampton",
+              item: siteConfig.url,
+            },
+          ],
+        },
       },
-    })),
+      {
+        "@type": "Product",
+        "@id": `${siteConfig.url}/#product`,
+        name: "IPTV Brampton Subscription",
+        description:
+          "High definition IPTV streaming subscription designed for Brampton and Canadian viewers. Access thousands of live TV channels, regional sports networks, on demand movies, and 4K streams with no contracts.",
+        image: `${siteConfig.url}/hero-bg.jpg`,
+        brand: {
+          "@type": "Brand",
+          name: "IPTV Brampton",
+        },
+        category: "Electronics > Video > Television Streaming Services",
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "CAD",
+          lowPrice: "12.99",
+          highPrice: "79.99",
+          offerCount: "4",
+          offers: siteConfig.pricingPlans.map((plan) => ({
+            "@type": "Offer",
+            name: `${plan.name} - IPTV Brampton`,
+            price: plan.price,
+            priceCurrency: "CAD",
+            priceValidUntil: "2027-12-31",
+            availability: "https://schema.org/InStock",
+            url: `${siteConfig.url}/#pricing`,
+          })),
+        },
+      },
+      {
+        "@type": "HowTo",
+        "@id": `${siteConfig.url}/#howto`,
+        name: "How to Set Up IPTV in Brampton in 3 Steps",
+        description:
+          "Simple 3-step guide to choosing an IPTV subscription, ordering via WhatsApp or web, and streaming on your Smart TV or Firestick.",
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Choose a Subscription",
+            text: "Select your preferred subscription duration: 1 Month ($12.99 CAD), 3 Months ($25.50 CAD), 6 Months ($50.99 CAD), or 12 Months ($79.99 CAD).",
+            url: `${siteConfig.url}/#pricing`,
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Complete Your Order on WhatsApp",
+            text: "Submit your streaming hardware preference (Firestick, Smart TV, Android box, or Apple device) and receive instant order confirmation.",
+            url: `${siteConfig.url}/#pricing`,
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Receive Credentials & Stream",
+            text: "Receive your M3U playlist link and Xtream Codes credentials via WhatsApp and email. Follow the simple app setup instructions and start streaming in under 5 minutes.",
+            url: `${siteConfig.url}/#pricing`,
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${siteConfig.url}/#faq`,
+        mainEntity: siteConfig.homeFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
     <>
-      <JsonLd data={faqSchema} />
+      <JsonLd data={homeSchema} />
 
       {/* Hero Section */}
       <Hero />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BookOpen } from "lucide-react";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { BlogListClient } from "@/components/blog/BlogListClient";
+import { JsonLd } from "@/components/common/JsonLd";
 import { blogPosts } from "@/data/blog-posts";
 import { siteConfig } from "@/config/site";
 
@@ -21,8 +22,33 @@ export const metadata: Metadata = {
 };
 
 export default function BlogListingPage() {
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${siteConfig.url}/blog#collectionpage`,
+    url: `${siteConfig.url}/blog`,
+    name: "IPTV Guides, Tutorials & News | IPTV Brampton Blog",
+    description:
+      "Authoritative guides and tutorials on IPTV in Brampton and Canada. Learn how to configure Firestick, Smart TVs, optimize internet speed, and select the best IPTV subscription.",
+    isPartOf: {
+      "@id": `${siteConfig.url}/#website`,
+    },
+    hasPart: blogPosts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.description,
+      url: `${siteConfig.url}/blog/${post.slug}`,
+      datePublished: post.date,
+      author: {
+        "@type": "Person",
+        name: post.author.name,
+      },
+    })),
+  };
+
   return (
     <div className="py-8 sm:py-12 bg-white">
+      <JsonLd data={blogSchema} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         <Breadcrumbs items={[{ label: "Blog", href: "/blog" }]} />
 

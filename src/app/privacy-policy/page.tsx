@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
+import { JsonLd } from "@/components/common/JsonLd";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -18,8 +19,23 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPolicyPage() {
+  const policySchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${siteConfig.url}/privacy-policy#webpage`,
+    url: `${siteConfig.url}/privacy-policy`,
+    name: "Privacy Policy | IPTV Brampton (PIPEDA Compliant)",
+    description:
+      "Read our Privacy Policy. Learn how IPTV Brampton collects, handles, and protects customer data in compliance with Canadian privacy legislation (PIPEDA).",
+    inLanguage: "en-CA",
+    isPartOf: {
+      "@id": `${siteConfig.url}/#website`,
+    },
+  };
+
   return (
     <div className="py-8 sm:py-12 bg-white">
+      <JsonLd data={policySchema} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         <Breadcrumbs items={[{ label: "Privacy Policy", href: "/privacy-policy" }]} />
 

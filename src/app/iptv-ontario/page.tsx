@@ -45,22 +45,51 @@ export default function IptvOntarioPage() {
     },
   ];
 
-  const faqSchema = {
+  const pageSchema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: ontarioFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${siteConfig.url}/iptv-ontario#webpage`,
+        url: `${siteConfig.url}/iptv-ontario`,
+        name: "IPTV Ontario: High Definition Streaming Across the Province",
+        description:
+          "Complete guide to IPTV service in Ontario, Canada. Learn about server routing in the Greater Toronto Area, compatible apps, live Canadian sports, and CAD pricing.",
+        inLanguage: "en-CA",
+        isPartOf: {
+          "@id": `${siteConfig.url}/#website`,
+        },
+        about: {
+          "@type": "Service",
+          name: "IPTV Ontario Streaming Service",
+          serviceType: "Internet Protocol Television",
+          provider: {
+            "@id": `${siteConfig.url}/#organization`,
+          },
+          areaServed: {
+            "@type": "AdministrativeArea",
+            name: "Ontario",
+          },
+        },
       },
-    })),
+      {
+        "@type": "FAQPage",
+        "@id": `${siteConfig.url}/iptv-ontario#faq`,
+        mainEntity: ontarioFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
     <div className="py-8 sm:py-12 bg-white">
-      <JsonLd data={faqSchema} />
+      <JsonLd data={pageSchema} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
         <Breadcrumbs items={[{ label: "IPTV Ontario", href: "/iptv-ontario" }]} />

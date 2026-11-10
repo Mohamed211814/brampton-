@@ -50,22 +50,55 @@ export default function IptvBramptonPage() {
     },
   ];
 
-  const faqSchema = {
+  const pageSchema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: localFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${siteConfig.url}/iptv-brampton#webpage`,
+        url: `${siteConfig.url}/iptv-brampton`,
+        name: "IPTV Brampton: Local Streaming Service for Peel Region",
+        description:
+          "Comprehensive guide to IPTV service in Brampton, Ontario. Optimized for Bell, Rogers, and local Peel Region broadband. Explore compatible devices, local channels, and CAD pricing.",
+        inLanguage: "en-CA",
+        isPartOf: {
+          "@id": `${siteConfig.url}/#website`,
+        },
+        about: {
+          "@type": "Service",
+          name: "IPTV Brampton Local Service",
+          serviceType: "Internet Protocol Television",
+          provider: {
+            "@id": `${siteConfig.url}/#organization`,
+          },
+          areaServed: {
+            "@type": "City",
+            name: "Brampton",
+            containedInPlace: {
+              "@type": "AdministrativeArea",
+              name: "Ontario",
+            },
+          },
+        },
       },
-    })),
+      {
+        "@type": "FAQPage",
+        "@id": `${siteConfig.url}/iptv-brampton#faq`,
+        mainEntity: localFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
     <div className="py-8 sm:py-12 bg-white">
-      <JsonLd data={faqSchema} />
+      <JsonLd data={pageSchema} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
         <Breadcrumbs items={[{ label: "IPTV Brampton", href: "/iptv-brampton" }]} />

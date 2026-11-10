@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ShieldCheck, HelpCircle, ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
+import { JsonLd } from "@/components/common/JsonLd";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -20,8 +21,23 @@ export const metadata: Metadata = {
 };
 
 export default function RefundPolicyPage() {
+  const refundSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${siteConfig.url}/refund-policy#webpage`,
+    url: `${siteConfig.url}/refund-policy`,
+    name: "Refund Policy | Transparent Canadian Support & Terms",
+    description:
+      "Review our transparent refund and cancellation policy. Learn about technical onboarding assistance, eligible refund conditions, and how to request support.",
+    inLanguage: "en-CA",
+    isPartOf: {
+      "@id": `${siteConfig.url}/#website`,
+    },
+  };
+
   return (
     <div className="py-8 sm:py-12 bg-white">
+      <JsonLd data={refundSchema} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         <Breadcrumbs items={[{ label: "Refund Policy", href: "/refund-policy" }]} />
 
@@ -102,7 +118,17 @@ export default function RefundPolicyPage() {
           </p>
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs text-red-700 space-y-1">
             <div>Email: {siteConfig.contact.email}</div>
-            <div>WhatsApp: {siteConfig.contact.phoneDisplay}</div>
+            <div>
+              WhatsApp:{" "}
+              <a
+                href={siteConfig.contact.whatsAppUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-red-900 font-semibold"
+              >
+                Contact on WhatsApp
+              </a>
+            </div>
             <div>Required Details: Your Full Name, Order Reference, and Specific Issue Description</div>
           </div>
           <p className="text-xs text-slate-500">

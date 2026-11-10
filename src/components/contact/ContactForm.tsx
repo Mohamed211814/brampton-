@@ -13,15 +13,39 @@ export function ContactForm() {
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("submitting");
+    setErrorMessage("");
 
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send message via email server.");
+      }
+
       setStatus("success");
-    }, 800);
+    } catch (err: unknown) {
+      console.error(err);
+      setStatus("error");
+      setErrorMessage(
+        "Could not deliver the message automatically. Please reach out to us directly via WhatsApp or email."
+      );
+    }
   };
+
+  const mailtoFallback = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
+    `IPTV Brampton Inquiry from ${formData.name || "Customer"}`
+  )}&body=${encodeURIComponent(
+    `Name: ${formData.name}\nEmail: ${formData.email}\nDevice: ${formData.device}\nPlan: ${formData.plan}\n\nMessage:\n${formData.message}`
+  )}`;
 
   return (
     <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-200/50">
@@ -32,16 +56,16 @@ export function ContactForm() {
           </div>
           <h3 className="text-2xl font-bold text-slate-950">Inquiry Received!</h3>
           <p className="text-slate-700 text-sm max-w-md mx-auto leading-relaxed">
-            Thank you for contacting <span className="text-slate-950 font-bold">IPTV Brampton</span>. A member of our technical support team will reply to <span className="text-red-600 font-mono font-medium">{formData.email}</span> with your requested setup details shortly (typically under 2 hours).
+            Thank you for contacting <span className="text-slate-950 font-bold">IPTV Brampton</span>. Your message has been forwarded to our support team at <span className="text-red-600 font-mono font-medium">{siteConfig.contact.email}</span>. We will reply to <span className="text-slate-950 font-mono font-semibold">{formData.email}</span> shortly (typically under 2 hours).
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href={`https://wa.me/19055550199?text=${encodeURIComponent(
+              href={`https://wa.me/${siteConfig.contact.whatsAppRawNumber}?text=${encodeURIComponent(
                 `Hello, I submitted an inquiry under the name ${formData.name} for ${formData.device}.`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-sm transition-colors shadow-md shadow-red-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-sm transition-colors shadow-md shadow-red-200 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Follow up on WhatsApp</span>
@@ -60,6 +84,28 @@ export function ContactForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">
+          {status === "error" && (
+            <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-sm space-y-2">
+              <p className="font-semibold">{errorMessage}</p>
+              <div className="flex flex-wrap gap-3 pt-1">
+                <a
+                  href={mailtoFallback}
+                  className="inline-flex items-center gap-1 font-bold text-red-700 hover:underline"
+                >
+                  Click here to send email directly ({siteConfig.contact.email}) &rarr;
+                </a>
+                <a
+                  href={siteConfig.contact.whatsAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-bold text-red-700 hover:underline"
+                >
+                  Or message us on WhatsApp &rarr;
+                </a>
+              </div>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label htmlFor="name" className="block text-xs font-bold uppercase text-slate-700 mb-1.5">

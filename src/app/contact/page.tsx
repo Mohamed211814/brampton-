@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Mail, Clock, MessageCircle, MapPin, ShieldCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { JsonLd } from "@/components/common/JsonLd";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -20,8 +21,38 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${siteConfig.url}/contact#contactpage`,
+    url: `${siteConfig.url}/contact`,
+    name: "Contact Us | Customer & Technical Support in Brampton, Canada",
+    description:
+      "Contact IPTV Brampton customer support. Reach our team via WhatsApp, email, or our inquiry form for device setup guidance and subscription assistance.",
+    inLanguage: "en-CA",
+    isPartOf: {
+      "@id": `${siteConfig.url}/#website`,
+    },
+    mainEntity: {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      telephone: siteConfig.contact.phone,
+      email: siteConfig.contact.email,
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: siteConfig.contact.phone,
+        email: siteConfig.contact.email,
+        contactType: "customer support",
+        availableLanguage: ["en"],
+        areaServed: "CA",
+      },
+    },
+  };
+
   return (
     <div className="py-8 sm:py-12 bg-white">
+      <JsonLd data={contactSchema} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
         <Breadcrumbs items={[{ label: "Contact Us", href: "/contact" }]} />
 
@@ -57,7 +88,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="text-slate-950 hover:text-red-600 font-bold text-base block mt-0.5"
                     >
-                      Chat on WhatsApp
+                      {siteConfig.contact.phoneDisplay}
                     </a>
                     <p className="text-xs text-slate-600 mt-0.5">
                       Recommended for quick device setup &amp; screenshot troubleshooting.

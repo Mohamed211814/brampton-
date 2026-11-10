@@ -22,11 +22,12 @@ export const siteConfig = {
     "Brampton IPTV service",
   ],
   contact: {
-    email: "support@iptvbrampton.ca",
-    phone: "+1 (905) 555-0199", // Configurable Canadian GTA/Brampton area code placeholder
-    phoneDisplay: "+1 (905) 555-0199",
-    whatsAppNumber: "+19055550199",
-    whatsAppUrl: "https://wa.me/19055550199?text=Hello%20IPTV%20Brampton%2C%20I%20would%20like%20to%20inquire%20about%20a%20subscription%20plan.",
+    email: "iptvusapro@gmail.com",
+    phone: "+212 779-395271",
+    phoneDisplay: "Contact on WhatsApp",
+    whatsAppRawNumber: "212779395271",
+    whatsAppNumber: "+212 779-395271",
+    whatsAppUrl: "https://wa.me/212779395271?text=Hello%2C%20I%20would%20like%20to%20order%20a%20streaming%20subscription.",
     hours: "Monday to Sunday: 9:00 AM 11:00 PM EST",
     supportResponseTime: "Typically under 2 hours",
     address: {
@@ -286,7 +287,7 @@ export const siteConfig = {
     {
       question: "How can I contact customer support?",
       answer:
-        "Our customer support team is available 7 days a week from 9:00 AM to 11:00 PM EST via WhatsApp and email at support@iptvbrampton.ca. Typical response time is under two hours.",
+        "Our customer support team is available 7 days a week from 9:00 AM to 11:00 PM EST via WhatsApp and email at iptvusapro@gmail.com. Typical response time is under two hours.",
     },
     {
       question: "Can I test the service before purchasing a long term plan?",

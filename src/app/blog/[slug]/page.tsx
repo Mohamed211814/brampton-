@@ -68,11 +68,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `${siteConfig.url}/blog/${post.slug}#article`,
     headline: post.title,
     description: post.description,
+    image: `${siteConfig.url}/hero-bg.jpg`,
     datePublished: post.date,
     dateModified: post.date,
+    inLanguage: "en-CA",
     author: {
       "@type": "Person",
       name: post.author.name,
@@ -80,9 +83,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     },
     publisher: {
       "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
       name: siteConfig.name,
       url: siteConfig.url,
-      logo: `${siteConfig.url}/logo.svg`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}/brand-flag.png`,
+      },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
